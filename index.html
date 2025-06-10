@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Script ini harus diletakkan di <head> untuk berjalan sebelum render
+      (function () {
+        // Cek localStorage dulu, ini prioritas utama
+        if (
+          localStorage.theme === 'dark' ||
+          // Jika tidak ada di localStorage, cek preferensi sistem
+          (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          // Terapkan class dark ke elemen <html>
+          document.documentElement.classList.add('dark');
+        } else {
+          // Atau hapus jika temanya light
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <!-- Flowbite -->
     <link
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"

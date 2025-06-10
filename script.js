@@ -73,23 +73,21 @@ document.addEventListener('DOMContentLoaded', function () {
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
 
-// Pengecekan tema awal (tidak perlu diubah)
-const userTheme = localStorage.getItem('theme');
-const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+// Fungsi untuk mengatur tampilan ikon berdasarkan tema saat ini
+const updateIconVisibility = () => {
+  if (document.documentElement.classList.contains('dark')) {
+    moonIcon.classList.remove('hidden');
+    sunIcon.classList.add('hidden');
+  } else {
+    moonIcon.classList.add('hidden');
+    sunIcon.classList.remove('hidden');
+  }
+};
 
+// Fungsi untuk toggle ikon (tidak perlu diubah)
 const iconToggle = () => {
   moonIcon.classList.toggle('hidden');
   sunIcon.classList.toggle('hidden');
-};
-
-const themeCheck = () => {
-  if (userTheme === 'dark' || (!userTheme && systemTheme)) {
-    document.documentElement.classList.add('dark');
-    moonIcon.classList.remove('hidden'); // Tampilkan bulan jika dark
-    sunIcon.classList.add('hidden'); // Sembunyikan matahari jika dark
-    return;
-  }
-  moonIcon.classList.add('hidden'); // Sembunyikan bulan jika light
 };
 
 // Fungsi utama untuk mengganti tema dengan animasi
@@ -185,4 +183,4 @@ moonIcon.addEventListener('click', (event) => {
 });
 
 // Panggil pengecekan tema saat halaman dimuat
-themeCheck();
+updateIconVisibility();
