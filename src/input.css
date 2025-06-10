@@ -38,6 +38,10 @@
   animation: none !important;
 }
 
+html.dark {
+  @apply bg-gray-900;
+}
+
 /* --- State KHUSUS saat transisi Light ke Dark --- */
 /* Kita menggunakan class penanda .transitioning-to-dark */
 
