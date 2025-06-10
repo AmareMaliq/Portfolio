@@ -1,0 +1,188 @@
+// navbar fixed
+window.onscroll = function () {
+  const header = document.querySelector('header');
+  const fixedNav = header.offsetTop;
+  const toTop = document.querySelector('#to-top');
+
+  if (window.pageYOffset > fixedNav) {
+    header.classList.add('navbar-fixed');
+    toTop.classList.remove('hidden');
+    toTop.classList.add('flex');
+  } else {
+    header.classList.remove('navbar-fixed');
+    toTop.classList.remove('flex');
+    toTop.classList.add('hidden');
+  }
+};
+
+// klik diluar hamburger
+window.addEventListener('click', function (e) {
+  if (e.target != hamburger && e.target != navMenu) {
+    hamburger.classList.remove('hamburger-active');
+    navMenu.classList.add('hidden');
+  }
+});
+
+// Hamburger
+const hamburger = document.querySelector('#hamburger');
+const navMenu = document.querySelector('#nav-menu');
+hamburger.addEventListener('click', function () {
+  hamburger.classList.toggle('hamburger-active');
+  navMenu.classList.toggle('hidden');
+});
+
+// custom cursor
+document.addEventListener('DOMContentLoaded', function () {
+  const cursorOuter = document.querySelector('[data-cursor-outer]');
+  const cursorInner = document.querySelector('[data-cursor-inner]');
+  const links = document.querySelectorAll(['h1', 'h2']);
+
+  document.addEventListener('mousemove', (event) => {
+    const { clientX, clientY } = event;
+
+    if (cursorOuter) {
+      // Update posisi elemen kursor
+      cursorOuter.style.left = `${clientX}px`;
+      cursorOuter.style.top = `${clientY}px`;
+      // cursorInner.style.left = `${clientX}px`;
+      // cursorInner.style.top = `${clientY}px`;
+      // chasing cursor animation
+      // cursorInner.animate(
+      //   {
+      //     left: `${clientX}px`,
+      //     top: `${clientY}px`,
+      //   },
+      //   { duration: 250, fill: 'forwards' }
+      // );
+
+      links.forEach((link) => {
+        link.addEventListener('mouseenter', () => {
+          cursorOuter.classList.add('hover');
+          // cursorInner.classList.add('hover');
+        });
+        link.addEventListener('mouseleave', () => {
+          cursorOuter.classList.remove('hover');
+          // cursorInner.classList.remove('hover');
+        });
+      });
+    }
+  });
+});
+
+// Icons
+const sunIcon = document.querySelector('.sun');
+const moonIcon = document.querySelector('.moon');
+
+// Pengecekan tema awal (tidak perlu diubah)
+const userTheme = localStorage.getItem('theme');
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const iconToggle = () => {
+  moonIcon.classList.toggle('hidden');
+  sunIcon.classList.toggle('hidden');
+};
+
+const themeCheck = () => {
+  if (userTheme === 'dark' || (!userTheme && systemTheme)) {
+    document.documentElement.classList.add('dark');
+    moonIcon.classList.remove('hidden'); // Tampilkan bulan jika dark
+    sunIcon.classList.add('hidden'); // Sembunyikan matahari jika dark
+    return;
+  }
+  moonIcon.classList.add('hidden'); // Sembunyikan bulan jika light
+};
+
+// Fungsi utama untuk mengganti tema dengan animasi
+const themeSwitch = (event) => {
+  const x = event.clientX;
+  const y = event.clientY;
+
+  if (!document.startViewTransition) {
+    // Fallback
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    iconToggle();
+    return;
+  }
+
+  // >>> BAGIAN BARU: Tambahkan class penanda SEBELUM transisi <<<
+  if (!document.documentElement.classList.contains('dark')) {
+    document.documentElement.classList.add('transitioning-to-dark');
+  }
+
+  const transition = document.startViewTransition(() => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  transition.ready.then(() => {
+    const radius = Math.max(
+      Math.hypot(x, y),
+      Math.hypot(window.innerWidth - x, y),
+      Math.hypot(x, window.innerHeight - y),
+      Math.hypot(window.innerWidth - x, window.innerHeight - y)
+    );
+
+    const isDark = document.documentElement.classList.contains('dark');
+
+    if (isDark) {
+      // Light ke Dark -> Kembangkan lingkaran gelap
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${radius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: 'ease-in-out',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    } else {
+      // Dark ke Light -> Susutkan lingkaran gelap
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(${radius}px at ${x}px ${y}px)`,
+            `circle(0px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: 'ease-in-out',
+          pseudoElement: '::view-transition-old(root)',
+        }
+      );
+    }
+  });
+
+  transition.finished.then(() => {
+    iconToggle();
+    // >>> BAGIAN BARU: Hapus class penanda SETELAH semua selesai <<<
+    document.documentElement.classList.remove('transitioning-to-dark');
+  });
+};
+
+// Event listener baru yang mengirimkan 'event'
+sunIcon.addEventListener('click', (event) => {
+  themeSwitch(event);
+});
+
+moonIcon.addEventListener('click', (event) => {
+  themeSwitch(event);
+});
+
+// Panggil pengecekan tema saat halaman dimuat
+themeCheck();

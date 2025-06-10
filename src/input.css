@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --breakpoint-sm: 390px;
+  --breakpoint-2xl: 1440px;
+  --font-nunito: 'Nunito', 'serif';
+  --font-poppins: 'Poppins', 'sans-serif';
+  --color-primary: #fe705a;
+  --color-secondary: #fef4ea;
+  --color-circle: #ffdbc1;
+  --spacing-big: 38rem;
+  --spacing-large: 28rem;
+  --spacing-medium: 20rem;
+  --spacing-small: 13rem;
+  --color-orange: #ff5b35;
+  --font-boska: 'Boska', serif;
+  --font-zodiak: 'Zodiak', serif;
+  --color-black: #262626;
+  --color-soft: #e3e3e3;
+  --color-footer: #9d9d9d;
+  --color-paragraph: #51545d;
+  --color-heading: #27333f;
+  --spacing-17: 68px;
+  --spacing-26: 104px;
+  --color-dark: #0f172a;
+}
+
+/* Aturan ini memastikan TAMPILAN LAMA (OLD) SELALU DI ATAS */
+/* --- Default state (untuk transisi Dark ke Light) --- */
+::view-transition-old(root) {
+  /* View lama (gelap) berada di ATAS untuk menyusut */
+  z-index: 9999;
+  animation: none !important;
+}
+::view-transition-new(root) {
+  /* View baru (terang) berada di BAWAH, menunggu diungkap */
+  z-index: 1;
+  animation: none !important;
+}
+
+/* --- State KHUSUS saat transisi Light ke Dark --- */
+/* Kita menggunakan class penanda .transitioning-to-dark */
+
+html.transitioning-to-dark::view-transition-new(root) {
+  /* View baru (gelap) sekarang kita paksa ke ATAS agar terlihat mengembang */
+  z-index: 9999;
+}
+html.transitioning-to-dark::view-transition-old(root) {
+  /* View lama (terang) kita pindah ke BAWAH agar tertutup */
+  z-index: 1;
+}
+
+.navbar-fixed {
+  @apply fixed z-[99] bg-white/70 backdrop-blur-[5px] dark:bg-gray-900/50;
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-black dark:bg-white;
+}
+
+.hamburger-line-short {
+  @apply w-[20px] h-[1.5px] my-2 block bg-black dark:bg-white;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+.timeline-img-ssm {
+  @apply h-24 w-24 object-center rounded-full shadow-md border-4 border-gray-50 dark:border-gray-800 md:absolute md:mx-auto md:left-0 md:right-0;
+}
+
+.timeline-img-bosnet {
+  @apply h-24 w-24 object-cover rounded-full shadow-md border-4 bg-white border-gray-50 dark:border-gray-800 md:absolute md:mx-auto md:left-0 md:right-0;
+}
+
+.timeline-content {
+  @apply relative pt-2 md:pl-16 md:pt-0 md:w-1/2 md:ml-auto;
+}
+
+.timeline-content-left {
+  @apply md:ml-0 md:mr-auto md:pl-0 md:pr-16;
+}
+
+.timeline-pointer {
+  @apply absolute left-10 h-3 w-4 md:left-14 md:top-11 transform rotate-45 inset-0 bg-white dark:bg-gray-800;
+}
+
+.timeline-pointer-left {
+  @apply md:left-auto md:right-14;
+}

@@ -1,0 +1,129 @@
+body {
+  cursor: default;
+}
+a {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+
+.cursor-outer {
+  width: 25px;
+  height: 25px;
+  background: #fe705a70;
+  /* border: 1px solid #fe705a50; */
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 99999;
+  pointer-events: none;
+  transition: 250ms ease-out;
+}
+
+.cursor-outer.hover {
+  transform: translate(-50%, -50%) scale(4);
+  transition: transform 250ms ease-in-out;
+  background: #fe705a;
+  mix-blend-mode: color-burn;
+  z-index: 99999;
+}
+.cursor-inner.hover {
+  transform: translate(-50%, -50%) scale(3);
+  transition: transform 250ms ease-in-out;
+  background: #fe705a;
+  mix-blend-mode: color-burn;
+  /* color burn */
+  /* multiply */
+  /* overlay */
+}
+
+.cursor-inner {
+  --circle-size: 25px;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  /* border: 2px solid #fe705a; */
+  background: #fe705a70;
+  position: fixed !important;
+  top: calc(var(--circle-size) / 2 * -1);
+  left: calc(var(--circle-size) / 2 * -1);
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  z-index: 999;
+  pointer-events: none;
+  transition: 250ms ease-out;
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.marquee {
+  display: flex;
+  width: max-content;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: marquee-left;
+  animation-duration: 20s;
+}
+.marquee.reverse {
+  animation-name: marquee-right;
+  animation-duration: 25s;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+.card {
+  flex-shrink: 0;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+    /* clip-path: inset(100% 100% 0 0); */
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    /* clip-path: inset(0 0 0 0); */
+  }
+}
+
+@keyframes appearClipPath {
+  from {
+    opacity: 0;
+    clip-path: inset(100% 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.portfolio {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+  visibility: visible;
+}
+
+.animation {
+  animation: appearClipPath linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
