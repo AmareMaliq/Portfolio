@@ -56,41 +56,6 @@ button {
   transition: 250ms ease-out;
 }
 
-@keyframes marquee-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-@keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.marquee {
-  display: flex;
-  width: max-content;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-name: marquee-left;
-  animation-duration: 20s;
-}
-.marquee.reverse {
-  animation-name: marquee-right;
-  animation-duration: 25s;
-}
-.marquee:hover {
-  animation-play-state: paused;
-}
-.card {
-  flex-shrink: 0;
-}
-
 @keyframes appear {
   from {
     opacity: 0;
