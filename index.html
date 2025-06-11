@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-      // Script ini hanya akan menerapkan mode gelap JIKA user
-      // secara eksplisit pernah memilihnya dan menyimpannya.
-      if (localStorage.theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-      // Jika tidak ada apa-apa di localStorage, script ini tidak melakukan apa-apa,
-      // sehingga halaman akan default ke mode terang.
+      // This script runs instantly, before the page is painted.
+      // It checks for a user's saved preference first, then falls back to their OS preference.
+      (function () {
+        if (
+          localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
     </script>
 
     <!-- Flowbite -->
@@ -52,7 +58,7 @@
     <link href="src/output.css" rel="stylesheet" />
   </head>
   <body
-    class="font-nunito antialiased selection:bg-orange dark:bg-gray-900 selection:text-white"
+    class="font-nunito antialiased selection:bg-orange bg-white dark:bg-gray-900 selection:text-white"
   >
     <!-- Header -->
     <header
@@ -284,7 +290,7 @@
           alt="Rounded avatar"
           loading="lazy"
         />
-        <div class="font-medium dark:text-white">
+        <div class="font-medium text-black dark:text-white">
           <h1 class="text-xl font-bold">Amare Maliq Aradhana</h1>
           <div class="text-sm text-gray-400 dark:text-gray-400">
             Web Developer | Software Developer
@@ -387,7 +393,9 @@
                 alt=""
                 loading="lazy"
               />
-              <p class="font-nunito text-sm text-center mt-4 dark:text-white">
+              <p
+                class="font-nunito text-sm text-center mt-4 text-black dark:text-white"
+              >
                 Through the lens of
                 <a
                   target="_blank"
@@ -399,7 +407,7 @@
             </div>
           </div>
           <div
-            class="relative flex flex-col justify-center space-y-4 dark:text-white"
+            class="relative flex flex-col justify-center space-y-4 text-black dark:text-white"
           >
             <div class="pb-4">
               <blockquote class="text-blockquote">
@@ -477,7 +485,7 @@
                   Jakarta, Indonesia
                 </p>
               </div>
-              <p class="text-sm md:text-base dark:text-white">
+              <p class="text-sm md:text-base text-black dark:text-white">
                 As a Web Developer Intern, I gained hands-on experience with PHP
                 and MySQL while learning the fundamentals of Content Management
                 Systems (CMS). My team and I successfully redesigned the
@@ -534,7 +542,7 @@
                   Jakarta, Indonesia
                 </p>
               </div>
-              <p class="text-sm md:text-base dark:text-white">
+              <p class="text-sm md:text-base text-black dark:text-white">
                 At Bosnet Distribution Indonesia, I have been deepening my
                 knowledge of software development, including API Development and
                 testing, SQL Injection, query and code debugging.
@@ -614,7 +622,9 @@
               ></path>
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 HTML
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -646,7 +656,9 @@
               ></path>
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 CSS
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -673,7 +685,9 @@
               ></path>
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 JavaScript
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -688,7 +702,9 @@
           >
             <img src="img/logo-php.svg" width="40" alt="" loading="lazy" />
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 PHP
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -713,7 +729,9 @@
               />
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Laravel
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -738,7 +756,9 @@
               />
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Tailwind CSS
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -811,7 +831,9 @@
               ></path>
             </svg>
             <div class="flex flex-col pr-10">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 MySQL
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -826,7 +848,9 @@
           >
             <img src="img/postman.svg" width="40" alt="" loading="lazy" />
             <div class="flex flex-col pr-8">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Postman
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -865,7 +889,9 @@
               <circle cx="32" cy="24" r="7" fill="#29b6f6"></circle>
             </svg>
             <div class="flex flex-col pr-8">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Figma
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -907,7 +933,9 @@
               ></path>
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 NodeJS
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -937,7 +965,9 @@
               ></path>
             </svg>
             <div class="flex flex-col">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Bootstrap
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -962,7 +992,9 @@
               ></path>
             </svg>
             <div class="flex flex-col pr-4">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Github
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -982,7 +1014,9 @@
               loading="lazy"
             />
             <div class="flex flex-col pr-4">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 Midtrans
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -1045,7 +1079,9 @@
             </svg>
 
             <div class="flex flex-col pr-4">
-              <h3 class="font-bold text-lg font-poppins dark:text-white">
+              <h3
+                class="font-bold text-lg font-poppins text-black dark:text-white"
+              >
                 .NET
               </h3>
               <span class="text-sm text-gray-500 dark:text-gray-400"
@@ -1075,7 +1111,7 @@
     <!-- Portfolio -->
     <section
       id="portfolio"
-      class="pt-5 pb-2 lg:pb-14 lg:py-32 dark:bg-gray-900"
+      class="pt-5 pb-2 lg:pb-14 lg:py-32 bg-white dark:bg-gray-900"
     >
       <div class="animation max-w-xl mx-auto text-center mb-8">
         <h2
@@ -1107,11 +1143,11 @@
           </div>
           <div class="relative z-10 space-y-4">
             <h2
-              class="font-semibold relative z-10 max-w-xl font-poppins text-xl lg:text-3xl dark:text-white"
+              class="font-semibold relative z-10 max-w-xl font-poppins text-xl lg:text-3xl text-black dark:text-white"
             >
               WeServe.
             </h2>
-            <div class="w-full dark:text-white">
+            <div class="w-full text-gray-700 dark:text-white">
               <p class="text-body mb-2">
                 A web-based platform that showcases hosting service offerings
                 with an eye-catching and responsive design.
@@ -1230,7 +1266,7 @@
         >
           <div class="relative z-10 space-y-4">
             <h2
-              class="font-semibold relative z-10 max-w-xl text-xl font-poppins lg:text-3xl dark:text-white"
+              class="font-semibold relative z-10 max-w-xl text-xl font-poppins lg:text-3xl text-black dark:text-white"
             >
               FomoNews.
             </h2>
@@ -1438,7 +1474,7 @@
           </div>
           <div class="relative z-10 space-y-4">
             <h2
-              class="font-semibold relative z-10 max-w-xl text-xl lg:text-3xl font-poppins dark:text-white"
+              class="font-semibold relative z-10 max-w-xl text-xl lg:text-3xl font-poppins text-black dark:text-white"
             >
               Vrom.
             </h2>
@@ -1644,7 +1680,7 @@
         >
           <div class="relative z-10 space-y-4">
             <h2
-              class="font-semibold relative z-10 max-w-xl text-xl lg:text-3xl font-poppins dark:text-white"
+              class="font-semibold relative z-10 max-w-xl text-xl lg:text-3xl font-poppins text-black dark:text-white"
             >
               Social Solutions.
             </h2>
@@ -1849,7 +1885,7 @@
           </div>
           <div class="relative z-10 space-y-4">
             <h2
-              class="font-semibold relative z-10 max-w-xl text-xl lg:text-3xl font-poppins dark:text-white"
+              class="font-semibold relative z-10 max-w-xl text-xl lg:text-3xl font-poppins text-black dark:text-white"
             >
               E-Library.
             </h2>
@@ -2037,7 +2073,7 @@
         >
           <div class="w-full">
             <h2
-              class="relative mb-5 z-10 max-w-xl text-xl font-semibold font-poppins lg:text-3xl dark:text-white"
+              class="relative mb-5 z-10 max-w-xl text-xl font-semibold font-poppins lg:text-3xl text-black dark:text-white"
             >
               Coming Soon.
             </h2>

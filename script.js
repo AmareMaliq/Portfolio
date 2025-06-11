@@ -69,7 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Icons
+// Your final script.js
+
+// Ikon
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
 
@@ -84,7 +86,7 @@ const updateIconVisibility = () => {
   }
 };
 
-// Fungsi untuk toggle ikon (tidak perlu diubah)
+// Fungsi untuk toggle ikon
 const iconToggle = () => {
   moonIcon.classList.toggle('hidden');
   sunIcon.classList.toggle('hidden');
@@ -96,7 +98,7 @@ const themeSwitch = (event) => {
   const y = event.clientY;
 
   if (!document.startViewTransition) {
-    // Fallback
+    // Fallback for browsers that don't support View Transitions
     if (document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
@@ -108,7 +110,7 @@ const themeSwitch = (event) => {
     return;
   }
 
-  // >>> BAGIAN BARU: Tambahkan class penanda SEBELUM transisi <<<
+  // Add a temporary class to signal the transition direction to CSS
   if (!document.documentElement.classList.contains('dark')) {
     document.documentElement.classList.add('transitioning-to-dark');
   }
@@ -134,7 +136,7 @@ const themeSwitch = (event) => {
     const isDark = document.documentElement.classList.contains('dark');
 
     if (isDark) {
-      // Light ke Dark -> Kembangkan lingkaran gelap
+      // Animate the circle expanding for the Light-to-Dark transition
       document.documentElement.animate(
         {
           clipPath: [
@@ -149,7 +151,7 @@ const themeSwitch = (event) => {
         }
       );
     } else {
-      // Dark ke Light -> Susutkan lingkaran gelap
+      // Animate the circle shrinking for the Dark-to-Light transition
       document.documentElement.animate(
         {
           clipPath: [
@@ -167,20 +169,20 @@ const themeSwitch = (event) => {
   });
 
   transition.finished.then(() => {
+    // Toggle the icon only AFTER the animation is complete
     iconToggle();
-    // >>> BAGIAN BARU: Hapus class penanda SETELAH semua selesai <<<
+    // Clean up the temporary class
     document.documentElement.classList.remove('transitioning-to-dark');
   });
 };
 
-// Event listener baru yang mengirimkan 'event'
+// Event Listeners
 sunIcon.addEventListener('click', (event) => {
   themeSwitch(event);
 });
-
 moonIcon.addEventListener('click', (event) => {
   themeSwitch(event);
 });
 
-// Panggil pengecekan tema saat halaman dimuat
+// Set the correct icon on initial page load
 updateIconVisibility();

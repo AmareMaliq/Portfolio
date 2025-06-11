@@ -26,27 +26,25 @@
 }
 
 /* Aturan ini memastikan TAMPILAN LAMA (OLD) SELALU DI ATAS */
-/* --- Default state (untuk transisi Dark ke Light) --- */
+/* In your input.css file */
+
+/* Default state (for Dark to Light transition) */
 ::view-transition-old(root) {
-  /* View lama (gelap) berada di ATAS untuk menyusut */
   z-index: 9999;
   animation: none !important;
 }
 ::view-transition-new(root) {
-  /* View baru (terang) berada di BAWAH, menunggu diungkap */
   z-index: 1;
   animation: none !important;
 }
 
-/* --- State KHUSUS saat transisi Light ke Dark --- */
-/* Kita menggunakan class penanda .transitioning-to-dark */
-
+/* Special state for Light to Dark transition */
 html.transitioning-to-dark::view-transition-new(root) {
-  /* View baru (gelap) sekarang kita paksa ke ATAS agar terlihat mengembang */
+  /* The new dark view must be on top to be visible */
   z-index: 9999;
 }
 html.transitioning-to-dark::view-transition-old(root) {
-  /* View lama (terang) kita pindah ke BAWAH agar tertutup */
+  /* The old light view goes to the bottom to be covered */
   z-index: 1;
 }
 
