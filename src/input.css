@@ -71,27 +71,28 @@ html.transitioning-to-dark::view-transition-old(root) {
 .hamburger-active > span:nth-child(3) {
   @apply -rotate-45;
 }
+/* KEMBALIKAN SEMUA CLASS TIMELINE ANDA MENJADI SEPERTI INI */
 
 .timeline-img-ssm {
-  @apply h-24 w-24 object-center rounded-full shadow-md border-4 border-gray-50 dark:border-gray-800 md:absolute md:mx-auto md:left-0 md:right-0;
+  @apply h-24 w-24 object-center rounded-full shadow-md border-4 border-gray-50 dark:border-gray-800 lg:absolute lg:mx-auto lg:left-0 lg:right-0;
 }
 
 .timeline-img-bosnet {
-  @apply h-24 w-24 object-cover rounded-full shadow-md border-4 bg-white border-gray-50 dark:border-gray-800 md:absolute md:mx-auto md:left-0 md:right-0;
+  @apply h-24 w-24 object-cover rounded-full shadow-md border-4 bg-white border-gray-50 dark:border-gray-800 lg:absolute lg:mx-auto lg:left-0 lg:right-0;
 }
 
 .timeline-content {
-  @apply relative pt-2 md:pl-16 md:pt-0 md:w-1/2 md:ml-auto;
+  @apply relative pt-2 lg:pl-16 lg:pt-0 lg:w-1/2 lg:ml-auto;
 }
 
 .timeline-content-left {
-  @apply md:ml-0 md:mr-auto md:pl-0 md:pr-16;
+  @apply lg:ml-0 lg:mr-auto lg:pl-0 lg:pr-16;
 }
 
 .timeline-pointer {
-  @apply absolute left-10 h-3 w-4 md:left-14 md:top-11 transform rotate-45 inset-0 bg-white dark:bg-gray-800;
+  @apply absolute left-10 h-3 w-4 lg:left-14 lg:top-11 transform rotate-45 inset-0 bg-white dark:bg-gray-800;
 }
 
 .timeline-pointer-left {
-  @apply md:left-auto md:right-14;
+  @apply lg:left-auto lg:right-14;
 }
