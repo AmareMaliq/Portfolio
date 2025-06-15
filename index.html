@@ -1,8 +1,33 @@
 <!doctype html>
-<html class="scroll-smooth">
+<html class="scroll-smooth" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amare Maliq | Web & Software Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Explore the portfolio of Amare Maliq Aradhana, a web and software developer passionate about building impactful, user-friendly software solutions. Discover my projects, skills, and professional journey."
+    />
+    <meta
+      name="keywords"
+      content="amare, amare maliq, maliq, web developer, software developer, portfolio, amare maliq, laravel, php, javascript, front-end, back-end, tailwind css, css, developer, programming, coding, software solutions, user-friendly, projects, skills, professional journey"
+    />
+    <meta name="author" content="Amare Maliq Aradhana" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Amare Maliq" />
+    <link rel="manifest" href="img/site.webmanifest" />
     <script>
       // This script runs instantly, before the page is painted.
       // It checks for a user's saved preference first, then falls back to their OS preference.
@@ -22,6 +47,7 @@
     <!-- Flowbite -->
     <link
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      media="print"
       rel="stylesheet"
     />
     <!-- font awesome -->
@@ -71,7 +97,17 @@
               class="flex flex-row items-center gap-x-2 font-bold text-lg text-orange py-6"
               href="#home"
             >
-              <img src="img/Logo.png" alt="" class="w-8" loading="lazy" />
+              <picture>
+                <source srcset="img/Logo.webp" type="image/webp" />
+                <source srcset="img/Logo.png" type="image/png" />
+                <img
+                  src="img/Logo.png"
+                  alt="Logo Amare Maliq Aradhana"
+                  class="w-8"
+                  loading="lazy"
+                />
+              </picture>
+
               Amare Maliq</a
             >
           </div>
@@ -82,6 +118,7 @@
               id="hamburger"
               name="hamburger"
               type="button"
+              aria-label="Buka atau tutup menu navigasi"
             >
               <span
                 class="hamburger-line origin-top-left transition-all duration-300 ease-in-out"
@@ -101,42 +138,42 @@
               <ul class="block md:flex md:flex-row md:gap-7">
                 <li class="group">
                   <a
-                    class="text-base text-gray-400 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
+                    class="text-base text-gray-500 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
                     href="#home"
                     >Home</a
                   >
                 </li>
                 <li class="group">
                   <a
-                    class="text-base text-gray-400 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
+                    class="text-base text-gray-500 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
                     href="#about"
                     >About</a
                   >
                 </li>
                 <li class="group">
                   <a
-                    class="text-base text-gray-400 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
+                    class="text-base text-gray-500 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
                     href="#experience"
                     >Experience</a
                   >
                 </li>
                 <li class="group">
                   <a
-                    class="text-base text-gray-400 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
+                    class="text-base text-gray-500 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
                     href="#skills"
                     >Skills</a
                   >
                 </li>
                 <li class="group">
                   <a
-                    class="text-base text-gray-400 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
+                    class="text-base text-gray-500 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
                     href="#portfolio"
                     >Portfolio</a
                   >
                 </li>
                 <li class="group">
                   <a
-                    class="text-base text-gray-400 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
+                    class="text-base text-gray-500 py-2 mx-8 md:mx-0 group-hover:text-orange flex"
                     href="#contact"
                     >Contact</a
                   >
@@ -206,12 +243,16 @@
       class="h-[5rem] md:h-[65vh] lg:h-screen bg-gradient-to-t from-secondary dark:from-gray-900 relative overflow-hidden"
     >
       <!-- image -->
-      <img
-        loading="lazy"
-        class="hidden md:block absolute bottom-0 right-0 md:right-15 left-0 lg:left-0 lg:right-28 mx-auto md:h-4/6 lg:h-5/6 xl:h-full object-cover"
-        src="img/mare-suit.png"
-        alt="amare maliq aradhana"
-      />
+      <picture>
+        <source srcset="img/mare-suit.webp" type="image/webp" />
+        <source srcset="img/mare-suit.png" type="image/png" />
+        <img
+          loading="lazy"
+          class="hidden md:block absolute bottom-0 right-0 md:right-15 left-0 lg:left-0 lg:right-28 mx-auto md:h-4/6 lg:h-5/6 xl:h-full object-cover"
+          src="img/mare-suit.png"
+          alt="amare maliq aradhana"
+        />
+      </picture>
       <!-- circle -->
       <div
         class="hidden md:block absolute bg-circle dark:bg-[radial-gradient(circle_at_bottom,transparent_0%_,#0F172A)] md:w-large md:h-large md:-bottom-40 md:left-0 md:right-15 lg:right-16 lg:w-large lg:h-large xl:w-big xl:h-big lg:-bottom-1/4 mx-auto rounded-full -z-10"
@@ -227,14 +268,14 @@
       <div
         class="hidden md:flex flex-col absolute xl:top-1/5 xl:mt-2 xl:right-2 md:right-2 lg:right-0 md:w-fit md:h-small md:top-1/4 md:mt-2 lg:h-fit lg:w-fit lg:top-1/4 lg:mt-5 lg:mr-2 xl:w-fit"
       >
-        <h1
-          class="font-zodiak font-bold md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-[#10100e] dark:text-white mb-2"
+        <h2
+          class="font-zodiak font-bold text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-[#10100e] dark:text-white mb-2"
         >
           Create <span class="text-orange">Impactful</span> <br />
           Software <span class="text-orange">Solutions.</span>
-        </h1>
+        </h2>
         <p
-          class="text-base leading-relaxed xl:text-base lg:text-sm md:text-sm text-paragraph dark:text-gray-400 my-2 lg:max-w-md xl:max-w-lg md:max-w-xs"
+          class="text-base leading-relaxed xl:text-base lg:text-sm md:text-sm text-paragraph dark:text-gray-500 my-2 lg:max-w-md xl:max-w-lg md:max-w-xs"
         >
           I'm
           <span
@@ -284,27 +325,32 @@
       class="md:hidden w-full h-full bg-secondary dark:bg-gray-900 flex flex-col gap-y-2 py-10"
     >
       <div class="flex items-center ml-4 gap-4 mb-4">
-        <img
-          class="w-26 h-26 p-1 rounded-full ring-2 ring-orange dark:ring-orange"
-          src="img/pp amare.jpeg"
-          alt="Rounded avatar"
-          loading="lazy"
-        />
+        <picture>
+          <source srcset="img/pp amare.webp" type="image/webp" />
+          <source srcset="img/pp amare.jpeg" type="image/jpeg" />
+          <img
+            class="w-26 h-26 p-1 rounded-full ring-2 ring-orange dark:ring-orange"
+            src="img/pp amare.jpeg"
+            alt="Amare"
+            loading="lazy"
+          />
+        </picture>
+
         <div class="font-medium text-black dark:text-white">
-          <h1 class="text-xl font-bold">Amare Maliq Aradhana</h1>
-          <div class="text-sm text-gray-400 dark:text-gray-400">
+          <h2 class="text-xl font-bold">Amare Maliq Aradhana</h2>
+          <div class="text-sm text-gray-500 dark:text-gray-500">
             Web Developer | Software Developer
           </div>
         </div>
       </div>
-      <h1
+      <h2
         class="font-zodiak font-bold text-3xl sm:text-4xl text-[#10100e] dark:text-white text-start mx-2 sm:mx-4"
       >
         Create <span class="text-orange">Impactful</span> <br />
         Software <span class="text-orange">Solutions</span>
-      </h1>
+      </h2>
       <p
-        class="font-semibold sm:text-base text-sm text-[#233143] dark:text-gray-400 my-2 max-w-lg mx-2 sm:mx-4"
+        class="font-semibold sm:text-base text-sm text-[#233143] dark:text-gray-500 my-2 max-w-lg mx-2 sm:mx-4"
       >
         I'm
         <span class="font-bold text-orange underline underline-offset-4"
@@ -364,7 +410,7 @@
             About.
           </h2>
           <p
-            class="font-medium text-base text-paragraph dark:text-gray-400 mb-6 max-w-xl lg:text-lg"
+            class="font-medium text-base text-paragraph dark:text-gray-500 mb-6 max-w-xl lg:text-lg"
           >
             Get to know a bit more about
             <span class="text-orange">me.</span>
@@ -373,26 +419,40 @@
         <div class="grid gap-6 md:grid-cols-2 md:gap-12 lg:gap-14 portfolio">
           <div class="flex items-center justify-center -mx-4 lg:pl-8">
             <div class="flex flex-col items-end px-3">
-              <img
-                class="object-cover mb-6 rounded-lg shadow-lg h-40 sm:h-60 xl:h-64 w-40 sm:w-60 xl:w-64 lg:grayscale lg:hover:grayscale-1 transition-all duration-300 ease-in-out"
-                src="img/nasionalis.JPG"
-                alt=""
-                loading="lazy"
-              />
-              <img
-                class="object-cover w-32 h-32 rounded-lg shadow-lg sm:h-44 xl:h-52 sm:w-44 xl:w-52 lg:grayscale lg:hover:grayscale-1 transition-all duration-300 ease-in-out"
-                src="img/shush.JPG"
-                alt=""
-                loading="lazy"
-              />
+              <picture>
+                <source srcset="img/nasionalis.webp" type="image/webp" />
+                <source srcset="img/nasionalis.JPG" type="image/jpg" />
+                <img
+                  class="object-cover mb-6 rounded-lg shadow-lg h-40 sm:h-60 xl:h-64 w-40 sm:w-60 xl:w-64 lg:grayscale lg:hover:grayscale-1 transition-all duration-300 ease-in-out"
+                  src="img/nasionalis.JPG"
+                  alt="Amare"
+                  loading="lazy"
+                />
+              </picture>
+
+              <picture>
+                <source srcset="img/shush.webp" type="image/webp" />
+                <source srcset="img/shush.JPG" type="image/jpg" />
+                <img
+                  class="object-cover w-32 h-32 rounded-lg shadow-lg sm:h-44 xl:h-52 sm:w-44 xl:w-52 lg:grayscale lg:hover:grayscale-1 transition-all duration-300 ease-in-out"
+                  src="img/shush.JPG"
+                  alt="Amare"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div class="px-3">
-              <img
-                class="object-cover w-52 h-52 rounded-lg shadow-lg sm:h-72 xl:h-96 sm:w-72 xl:w-96 lg:grayscale lg:hover:grayscale-1 transition-all duration-300 ease-in-out"
-                src="img/cantHearYou.JPG"
-                alt=""
-                loading="lazy"
-              />
+              <picture>
+                <source srcset="img/shush.webp" type="image/webp" />
+                <source srcset="img/cantHearYou.JPG" type="image/jpg" />
+                <img
+                  class="object-cover w-52 h-52 rounded-lg shadow-lg sm:h-72 xl:h-96 sm:w-72 xl:w-96 lg:grayscale lg:hover:grayscale-1 transition-all duration-300 ease-in-out"
+                  src="img/cantHearYou.JPG"
+                  alt="Amare"
+                  loading="lazy"
+                />
+              </picture>
+
               <p
                 class="font-nunito text-sm text-center mt-4 text-black dark:text-white"
               >
@@ -446,7 +506,7 @@
           Experience.
         </h2>
         <p
-          class="font-medium text-base text-paragraph dark:text-gray-400 mb-6 max-w-xl lg:text-lg"
+          class="font-medium text-base text-paragraph dark:text-gray-500 mb-6 max-w-xl lg:text-lg"
         >
           My experiences that have shaped <br class="lg:hidden" />
           my
@@ -461,12 +521,17 @@
         ></div>
 
         <div class="relative z-10">
-          <img
-            src="img/ssm.jpg"
-            class="timeline-img-ssm"
-            alt=""
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="img/ssm.webp" type="image/webp" />
+            <source srcset="img/ssm.jpg" type="image/jpg" />
+            <img
+              src="img/ssm.jpg"
+              class="timeline-img-ssm"
+              alt="PT. Sarana Sistem Mikro"
+              loading="lazy"
+            />
+          </picture>
+
           <div class="timeline-content">
             <div class="timeline-pointer" aria-hidden="true"></div>
             <div
@@ -479,7 +544,7 @@
                 <p class="text-heading dark:text-white font-semibold">
                   PT. Sarana Sistem Mikro
                 </p>
-                <p class="text-sm text-paragraph dark:text-gray-400">
+                <p class="text-sm text-paragraph dark:text-gray-500">
                   Feb 2023 - Jul 2023
                 </p>
                 <p class="text-sm text-paragraph dark:text-gray-500">
@@ -516,12 +581,17 @@
         </div>
 
         <div class="relative z-10">
-          <img
-            src="img/LOGO_Bosnet.png"
-            class="timeline-img-bosnet"
-            alt=""
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="img/LOGO_Bosnet.webp" type="image/webp" />
+            <source srcset="img/LOGO_Bosnet.png" type="image/png" />
+            <img
+              src="img/LOGO_Bosnet.png"
+              class="timeline-img-bosnet"
+              alt="BOSNET Distribution Indonesia  "
+              loading="lazy"
+            />
+          </picture>
+
           <div class="timeline-content timeline-content-left">
             <div
               class="timeline-pointer timeline-pointer-left"
@@ -537,7 +607,7 @@
                 <p class="text-heading dark:text-white font-semibold">
                   BOSNET Distribution Indonesia
                 </p>
-                <p class="text-sm text-paragraph dark:text-gray-400">
+                <p class="text-sm text-paragraph dark:text-gray-500">
                   Sep 2024 - Present
                 </p>
                 <p class="text-sm text-paragraph dark:text-gray-500">
@@ -593,7 +663,7 @@
             Skills.
           </h2>
           <p
-            class="font-medium text-base text-paragraph dark:text-gray-400 mb-6 max-w-xl lg:text-lg"
+            class="font-medium text-base text-paragraph dark:text-gray-500 mb-6 max-w-xl lg:text-lg"
           >
             I continuously push my boundaries and <br class="md:hidden" />
             expand my
@@ -629,7 +699,7 @@
               >
                 HTML
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Front-End Development</span
               >
             </div>
@@ -663,7 +733,7 @@
               >
                 CSS
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Front-End Development</span
               >
             </div>
@@ -692,7 +762,7 @@
               >
                 JavaScript
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Front-End Development</span
               >
             </div>
@@ -702,14 +772,14 @@
           <div
             class="bg-white dark:bg-gray-600/50 w-full md:w-fit mx-12 md:mx-0 shadow-sm flex items-center gap-3 py-4 px-4 rounded-lg hover:-translate-y-4 transition-all duration-500 ease-in-out"
           >
-            <img src="img/logo-php.svg" width="40" alt="" loading="lazy" />
+            <img src="img/logo-php.svg" width="40" alt="php" loading="lazy" />
             <div class="flex flex-col">
               <h3
                 class="font-bold text-lg font-poppins text-black dark:text-white"
               >
                 PHP
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Back-End Development</span
               >
             </div>
@@ -736,7 +806,7 @@
               >
                 Laravel
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Back-End Development</span
               >
             </div>
@@ -763,7 +833,7 @@
               >
                 Tailwind CSS
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Front-End Development</span
               >
             </div>
@@ -838,7 +908,7 @@
               >
                 MySQL
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >RDBMS</span
               >
             </div>
@@ -848,14 +918,19 @@
           <div
             class="bg-white dark:bg-gray-600/50 w-full md:w-fit mx-12 md:mx-0 shadow-sm flex items-center gap-3 p-3 md:p-4 rounded-lg hover:-translate-y-4 transition-all duration-500 ease-in-out"
           >
-            <img src="img/postman.svg" width="40" alt="" loading="lazy" />
+            <img
+              src="img/postman.svg"
+              width="40"
+              alt="postman"
+              loading="lazy"
+            />
             <div class="flex flex-col pr-8">
               <h3
                 class="font-bold text-lg font-poppins text-black dark:text-white"
               >
                 Postman
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >API Development</span
               >
             </div>
@@ -896,7 +971,7 @@
               >
                 Figma
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >UI/UX Design</span
               >
             </div>
@@ -940,7 +1015,7 @@
               >
                 NodeJS
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Back-End Development</span
               >
             </div>
@@ -972,7 +1047,7 @@
               >
                 Bootstrap
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Front-End Development</span
               >
             </div>
@@ -999,7 +1074,7 @@
               >
                 Github
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Version Control Systems</span
               >
             </div>
@@ -1008,20 +1083,25 @@
           <div
             class="bg-white dark:bg-gray-600/50 w-full md:w-fit mx-12 md:mx-0 shadow-sm flex items-center gap-3 py-4 px-4 rounded-lg hover:-translate-y-4 transition-all duration-500 ease-in-out"
           >
-            <img
-              class="rounded-full"
-              src="img/midtrans-small.png"
-              width="40"
-              alt=""
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="img/midtrans-small.webp" type="image/webp" />
+              <source srcset="img/midtrans-small.png" type="image/png" />
+              <img
+                class="rounded-full"
+                src="img/midtrans-small.png"
+                width="40"
+                alt="midtrans"
+                loading="lazy"
+              />
+            </picture>
+
             <div class="flex flex-col pr-4">
               <h3
                 class="font-bold text-lg font-poppins text-black dark:text-white"
               >
                 Midtrans
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Payment Gateway</span
               >
             </div>
@@ -1086,7 +1166,7 @@
               >
                 .NET
               </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400"
+              <span class="text-sm text-gray-500 dark:text-gray-500"
                 >Back-End Development</span
               >
             </div>
@@ -1122,7 +1202,7 @@
           Portfolio.
         </h2>
         <p
-          class="font-medium text-base text-paragraph dark:text-gray-400 mb-6 max-w-xl lg:text-lg"
+          class="font-medium text-base text-paragraph dark:text-gray-500 mb-6 max-w-xl lg:text-lg"
         >
           Here are some of my latest projects <br class="md:hidden" />
           that I have
@@ -1139,7 +1219,7 @@
               draggable="false"
               class="rounded-lg shadow-md"
               src="img/WeServe.svg"
-              alt=""
+              alt="Project WeServe"
               loading="lazy"
             />
           </div>
@@ -1155,7 +1235,7 @@
                 offerings with an eye-catching and responsive design.
               </p>
               <ul
-                class="gap-2 grid grid-cols-1 text-gray-700 dark:text-gray-400 list-disc list-inside"
+                class="gap-2 grid grid-cols-1 text-gray-700 dark:text-gray-500 list-disc list-inside"
               >
                 <li>Responsive Design</li>
                 <li>Figma to HTML</li>
@@ -1168,6 +1248,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-html"
                 type="button"
+                aria-label="pesan deskriptif singkat html"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1207,6 +1288,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-tailwind"
                 type="button"
+                aria-label="pesan deskriptif singkat tailwind"
               >
                 <svg
                   fill="#06B6D4"
@@ -1233,6 +1315,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-js"
                 type="button"
+                aria-label="pesan deskriptif singkat javascript"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1279,7 +1362,7 @@
                 efficient management.
               </p>
               <ul
-                class="grid grid-flow-col grid-rows-4 gap-2 dark:text-gray-400 text-gray-700 list-disc list-inside"
+                class="grid grid-flow-col grid-rows-4 gap-2 dark:text-gray-500 text-gray-700 list-disc list-inside"
               >
                 <li>Admin Sign-in</li>
                 <li>Banner Ads</li>
@@ -1293,6 +1376,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-laravel"
                 type="button"
+                aria-label="pesan deskriptif singkat laravel"
               >
                 <svg
                   fill="#FF2D20"
@@ -1319,6 +1403,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-tailwind2"
                 type="button"
+                aria-label="pesan deskriptif singkat tailwind"
               >
                 <svg
                   fill="#06B6D4"
@@ -1345,6 +1430,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-js2"
                 type="button"
+                aria-label="pesan deskriptif singkat javascript"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1373,6 +1459,7 @@
                 class="px-3 py-2 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-mysql"
                 type="button"
+                aria-label="pesan deskriptif singkat mysql"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1451,7 +1538,7 @@
               draggable="false"
               class="rounded-lg shadow-md"
               src="img/FomoNews.svg"
-              alt=""
+              alt="Project FomoNews"
               loading="lazy"
             />
           </div>
@@ -1468,7 +1555,7 @@
               draggable="false"
               class="rounded-lg shadow-md"
               src="img/Vrom.svg"
-              alt=""
+              alt="Project Vrom"
               loading="lazy"
             />
           </div>
@@ -1484,7 +1571,7 @@
                 book dates, and make payments securely using Midtrans.
               </p>
               <ul
-                class="grid grid-flow-col grid-rows-4 gap-2 text-gray-700 dark:text-gray-400 list-disc list-inside"
+                class="grid grid-flow-col grid-rows-4 gap-2 text-gray-700 dark:text-gray-500 list-disc list-inside"
               >
                 <li>Car Detail View</li>
                 <li>Booking System</li>
@@ -1498,6 +1585,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-laravel2"
                 type="button"
+                aria-label="pesan deskriptif singkat laravel"
               >
                 <svg
                   fill="#FF2D20"
@@ -1524,6 +1612,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-tailwind3"
                 type="button"
+                aria-label="pesan deskriptif singkat tailwind"
               >
                 <svg
                   fill="#06B6D4"
@@ -1550,6 +1639,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-js3"
                 type="button"
+                aria-label="pesan deskriptif singkat javascript"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1578,6 +1668,7 @@
                 class="px-3 py-2 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-mysql2"
                 type="button"
+                aria-label="pesan deskriptif singkat mysql"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1652,13 +1743,18 @@
                 class="px-3 py-2 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-midtrans"
                 type="button"
+                aria-label="pesan deskriptif singkat midtrans"
               >
-                <img
-                  class="w-10 rounded-full"
-                  src="img/midtrans-small.png"
-                  alt=""
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcset="img/midtrans-small.webp" type="image/webp" />
+                  <source srcset="img/midtrans-small.png" type="image/png" />
+                  <img
+                    class="w-10 rounded-full"
+                    src="img/midtrans-small.png"
+                    alt="Midtrans Logo"
+                    loading="lazy"
+                  />
+                </picture>
               </button>
               <div
                 id="tooltip-midtrans"
@@ -1691,7 +1787,7 @@
                 platforms.
               </p>
               <ul
-                class="grid grid-flow-col grid-rows-4 gap-2 text-gray-700 dark:text-gray-400 list-disc list-inside"
+                class="grid grid-flow-col grid-rows-4 gap-2 text-gray-700 dark:text-gray-500 list-disc list-inside"
               >
                 <li>Transaction Details</li>
                 <li>Cart</li>
@@ -1706,6 +1802,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-laravel3"
                 type="button"
+                aria-label="pesan deskriptif singkat laravel"
               >
                 <svg
                   fill="#FF2D20"
@@ -1732,6 +1829,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-bootstrap"
                 type="button"
+                aria-label="pesan deskriptif singkat bootstrap"
               >
                 <svg
                   fill="#7952B3"
@@ -1758,6 +1856,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-js4"
                 type="button"
+                aria-label="pesan deskriptif singkat jvasscript"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1786,6 +1885,7 @@
                 class="px-3 py-2 rounded-md border border-gray-300 dark:border-gray-400 shadow-lg"
                 data-tooltip-target="tooltip-mysql3"
                 type="button"
+                aria-label="pesan deskriptif singkat mysql"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1864,7 +1964,7 @@
               draggable="false"
               class="rounded-lg shadow-md"
               src="img/Social Solutions.svg"
-              alt=""
+              alt="Project Social Solutions"
               loading="lazy"
             />
           </div>
@@ -1881,7 +1981,7 @@
               draggable="false"
               class="rounded-lg shadow-md"
               src="img/SixtyFive Library.svg"
-              alt=""
+              alt="Project E-Library"
               loading="lazy"
             />
           </div>
@@ -1897,7 +1997,7 @@
                 to manage book borrowing and returning activities efficiently.
               </p>
               <ul
-                class="grid grid-flow-col grid-rows-4 gap-2 text-gray-700 dark:text-gray-400 list-disc list-inside"
+                class="grid grid-flow-col grid-rows-4 gap-2 text-gray-700 dark:text-gray-500 list-disc list-inside"
               >
                 <li>Multi Roles</li>
                 <li>Borrow Books</li>
@@ -1911,6 +2011,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 shadow-lg"
                 data-tooltip-target="tooltip-laravel4"
                 type="button"
+                aria-label="pesan deskriptif singkat laravel"
               >
                 <svg
                   fill="#FF2D20"
@@ -1937,6 +2038,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 shadow-lg"
                 data-tooltip-target="tooltip-tailwind5"
                 type="button"
+                aria-label="pesan deskriptif singkat tailwind"
               >
                 <svg
                   fill="#06B6D4"
@@ -1963,6 +2065,7 @@
                 class="px-4 py-3 rounded-md border border-gray-300 shadow-lg"
                 data-tooltip-target="tooltip-js5"
                 type="button"
+                aria-label="pesan deskriptif singkat javascript"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1991,6 +2094,7 @@
                 class="px-3 py-2 rounded-md border border-gray-300 shadow-lg"
                 data-tooltip-target="tooltip-mysql4"
                 type="button"
+                aria-label="pesan deskriptif singkat mysql"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2128,7 +2232,7 @@
             Contact.
           </h2>
           <p
-            class="font-medium text-base text-paragraph mb-6 max-w-xl lg:text-lg dark:text-gray-400"
+            class="font-medium text-base text-paragraph mb-6 max-w-xl lg:text-lg dark:text-gray-500"
           >
             Feel free to reach out if you're
             <span class="text-orange">interested!</span>
@@ -2212,8 +2316,9 @@
       <div
         class="w-full mx-auto flex flex-col-reverse gap-y-2 p-4 md:flex-row md:items-center md:justify-between"
       >
-        <span class="text-sm text-white text-center dark:text-gray-400"
-          >© 2025 <a href="https://flowbite.com/" class="">Amare Maliq™</a>.
+        <span class="text-sm text-white text-center dark:text-gray-500"
+          >© 2025
+          <a href="https://amaremaliq.netlify.app/" class="">Amare Maliq™</a>.
           All Rights Reserved.
         </span>
         <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
@@ -2329,8 +2434,10 @@
         });
       });
     </script>
-    <script src="script.js"></script>
-    <script src="autotyping.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="script.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"
+      defer
+    ></script>
   </body>
 </html>
