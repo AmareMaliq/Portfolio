@@ -88,7 +88,7 @@
   >
     <!-- Header -->
     <header
-      class="bg-transparent absolute top-0 left-0 w-full flex items-center z-50"
+      class="bg-transparent absolute top-0 left-0 w-full flex items-center z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-in-out"
     >
       <div class="container mx-auto">
         <div class="flex items-center justify-between relative">
@@ -104,7 +104,10 @@
                   src="img/Logo.png"
                   alt="Logo Amare Maliq Aradhana"
                   class="w-8"
-                  loading="lazy"
+                  width="32"
+                  height="32"
+                  loading="eager"
+                  fetchpriority="high"
                 />
               </picture>
 
@@ -132,7 +135,7 @@
             </button>
             <!-- nav -->
             <nav
-              class="hidden md:block md:static md:bg-transparent md:max-w-6xl md:mx-auto md:shadow-none md:rounded-none absolute py-5 bg-white dark:bg-gray-900 lg:dark:bg-transparent dark:shadow-gray-800 md shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full"
+              class="nav-closed transition-all duration-300 ease-out md:static md:bg-transparent md:max-w-6xl md:mx-auto md:shadow-none md:rounded-none absolute py-5 bg-white dark:bg-gray-900 lg:dark:bg-transparent dark:shadow-gray-800 md shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full origin-top-right"
               id="nav-menu"
             >
               <ul class="block md:flex md:flex-row md:gap-7">
@@ -183,7 +186,10 @@
           </div>
           <div id="theme-toggle-container" class="flex mr-16 md:mr-5">
             <div
-              class="sun cursor-pointer flex justify-center items-center bg-orange rounded-full p-3"
+              class="sun theme-toggle-btn cursor-pointer flex justify-center items-center bg-orange rounded-full p-3"
+              role="button"
+              tabindex="0"
+              aria-label="Ganti ke mode gelap"
             >
               <svg
                 width="22"
@@ -215,7 +221,10 @@
             </div>
 
             <div
-              class="moon flex cursor-pointer justify-center items-center bg-orange rounded-full p-3"
+              class="moon theme-toggle-btn flex cursor-pointer justify-center items-center bg-orange rounded-full p-3"
+              role="button"
+              tabindex="0"
+              aria-label="Ganti ke mode terang"
             >
               <svg
                 width="22"
@@ -247,7 +256,8 @@
         <source srcset="img/mare-suit.webp" type="image/webp" />
         <source srcset="img/mare-suit.png" type="image/png" />
         <img
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
           class="hidden md:block absolute bottom-0 right-0 md:right-15 left-0 lg:left-0 lg:right-28 mx-auto md:h-4/6 lg:h-5/6 xl:h-full object-cover"
           src="img/mare-suit.png"
           alt="amare maliq aradhana"
@@ -326,13 +336,14 @@
     >
       <div class="flex items-center ml-4 gap-4 mb-4">
         <picture>
-          <source srcset="img/pp amare.webp" type="image/webp" />
-          <source srcset="img/pp amare.jpeg" type="image/jpeg" />
+          <source srcset="img/pp-amare.webp" type="image/webp" />
+          <source srcset="img/pp-amare.jpeg" type="image/jpeg" />
           <img
             class="w-26 h-26 p-1 rounded-full ring-2 ring-orange dark:ring-orange"
-            src="img/pp amare.jpeg"
+            src="img/pp-amare.jpeg"
             alt="Amare"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
           />
         </picture>
 
@@ -497,153 +508,159 @@
     <!-- Experience -->
     <section
       id="experience"
-      class="py-20 xl:py-32 bg-secondary dark:bg-gray-900"
+      class="py-20 xl:py-32 bg-white dark:bg-gray-900"
     >
-      <div class="animation max-w-xl mx-5 lg:mx-auto text-center mb-16">
-        <h2
-          class="font-medium font-zodiak text-[#27333f] dark:text-white lg:text-5xl text-4xl mb-4"
-        >
-          Experience.
-        </h2>
-        <p
-          class="font-medium text-base text-paragraph dark:text-gray-500 mb-6 max-w-xl lg:text-lg"
-        >
-          My experiences that have shaped <br class="lg:hidden" />
-          my
-          <span class="text-orange">journey.</span>
-        </p>
-      </div>
-      <div
-        class="relative container mx-auto px-6 flex flex-col gap-y-10 lg:gap-y-10"
-      >
-        <div
-          class="timline-line absolute z-0 w-2 h-full bg-white dark:bg-gray-800/50 shadow-md left-17 inset-0 lg:mx-auto lg:right-0 lg:left-0"
-        ></div>
-
-        <div class="relative z-10">
-          <picture>
-            <source srcset="img/bosnetdis_logo.webp" type="image/webp" />
-            <source srcset="img/bosnetdis_logo.jpg" type="image/jpg" />
-            <img
-              src="img/bosnetdis_logo.jpg"
-              class="timeline-img-bosnet"
-              alt="BOSNET Distribution Indonesia"
-              loading="lazy"
-            />
-          </picture>
-
-          <div class="timeline-content">
-            <div class="timeline-pointer" aria-hidden="true"></div>
-            <div
-              class="bg-white dark:bg-gray-800 p-3 lg:p-6 rounded-md shadow-md"
-            >
-              <div class="mb-4">
-                <h3 class="font-bold text-lg lg:text-xl text-orange">
-                  Software Developer Internship
-                </h3>
-                <p class="text-heading dark:text-white font-semibold">
-                  BOSNET Distribution Indonesia
-                </p>
-                <p class="text-sm text-paragraph dark:text-gray-500">
-                  Sep 2024 - Present
-                </p>
-                <p class="text-sm text-paragraph dark:text-gray-500">
-                  Jakarta, Indonesia
-                </p>
-              </div>
-              <p class="text-sm lg:text-base text-black dark:text-white">
-                At Bosnet Distribution Indonesia, I have been deepening my
-                knowledge of software development, including API Development and
-                testing, SQL Injection, query and code debugging.
-              </p>
-              <ul
-                class="space-y-4 text-gray-700 dark:text-gray-300 text-sm lg:text-base leading-relaxed mt-4"
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-6 gap-x-16 gap-y-12">
+          <!-- Sidebar -->
+          <div class="lg:col-span-2">
+            <div class="lg:sticky lg:top-28">
+              <h2
+                class="relative inline-block font-medium font-zodiak text-[#27333f] dark:text-white text-4xl lg:text-5xl tracking-tight"
               >
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Successfully upgraded SQL database versions and stored
-                  procedures for product systems.
-                </li>
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Fixed over 50+ minor and major bugs in .NET-based systems and
-                  SQL queries.
-                </li>
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Optimized system performance through debugging and query
-                  optimization.
-                </li>
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Developed and tested APIs to support front-end CRUD
-                  operations, ensuring seamless data management and system
-                  efficiency using .NET C#.
-                </li>
-              </ul>
+                Experience
+                <span
+                  class="absolute -top-1 -right-14 font-poppins text-xs font-bold whitespace-nowrap text-orange"
+                  >Solid 3</span
+                >
+              </h2>
+              <p
+                class="mt-1 text-xs font-medium tracking-widest text-paragraph dark:text-gray-500 uppercase"
+              >
+                Years
+              </p>
+              <p
+                class="mt-6 max-w-sm text-base leading-relaxed text-paragraph dark:text-gray-400"
+              >
+                The internships and roles that have shaped my growth as a
+                developer — from web fundamentals to full-stack systems and
+                mobile apps.
+              </p>
+              <a
+                href="#contact"
+                class="group mt-8 inline-flex items-center gap-3 rounded-full border border-gray-200 py-1.5 pr-1.5 pl-5 transition-colors hover:border-orange dark:border-gray-700"
+              >
+                <span
+                  class="text-sm font-semibold text-[#27333f] dark:text-white"
+                  >Contact now</span
+                >
+                <span
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange text-white transition-transform duration-300 group-hover:rotate-45"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    height="0.9em"
+                    width="0.9em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path>
+                  </svg>
+                </span>
+              </a>
             </div>
           </div>
-        </div>
 
-        <div class="relative z-10">
-          <picture>
-            <source srcset="img/ssm.webp" type="image/webp" />
-            <source srcset="img/ssm.jpg" type="image/jpg" />
-            <img
-              src="img/ssm.jpg"
-              class="timeline-img-ssm"
-              alt="PT. Sarana Sistem Mikro"
-              loading="lazy"
-            />
-          </picture>
-
-          <div class="timeline-content timeline-content-left">
+          <!-- Roles -->
+          <div
+            class="lg:col-span-4 divide-y divide-gray-200 dark:divide-gray-800"
+          >
             <div
-              class="timeline-pointer timeline-pointer-left"
-              aria-hidden="true"
-            ></div>
-            <div
-              class="bg-white dark:bg-gray-800 p-3 lg:p-6 rounded-md shadow-md"
+              class="flex flex-col gap-3 py-8 first:pt-0 last:pb-0 lg:flex-row lg:items-start lg:justify-between lg:gap-8"
             >
-              <div class="mb-4">
-                <h3 class="font-bold text-lg lg:text-xl text-orange">
-                  Web Developer Internship
+              <div>
+                <p
+                  class="mb-1 text-sm font-medium text-paragraph dark:text-gray-500"
+                >
+                  BOSNET Distribution Indonesia
+                </p>
+                <h3
+                  class="mb-3 font-zodiak text-2xl tracking-tight text-[#27333f] lg:text-3xl dark:text-white"
+                >
+                  Software Developer
                 </h3>
-                <p class="text-heading dark:text-white font-semibold">
-                  PT. Sarana Sistem Mikro
-                </p>
-                <p class="text-sm text-paragraph dark:text-gray-500">
-                  Feb 2023 - Jul 2023
-                </p>
-                <p class="text-sm text-paragraph dark:text-gray-500">
-                  Jakarta, Indonesia
+                <p
+                  class="max-w-xl text-base leading-relaxed text-paragraph dark:text-gray-400"
+                >
+                  Building applications using C# with the .NET Framework,
+                  designing databases with SQL Server, and developing
+                  cross-platform mobile apps with .NET MAUI. Also developed
+                  websites using HTML, CSS, and JavaScript with high
+                  acceptance criteria.
                 </p>
               </div>
-              <p class="text-sm lg:text-base text-black dark:text-white">
-                As a Web Developer Intern, I gained hands-on experience with PHP
-                and MySQL while learning the fundamentals of Content Management
-                Systems (CMS). My team and I successfully redesigned the
-                company’s website to showcase their hardware products with a
-                more structured and professional layout.
-              </p>
-              <ul
-                class="space-y-4 text-gray-700 dark:text-gray-300 text-sm lg:text-base leading-relaxed mt-4"
+              <span
+                class="inline-flex shrink-0 items-center rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-paragraph lg:mt-1 dark:bg-gray-800 dark:text-gray-300"
               >
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Developed an admin login system and dashboard for website CMS
-                  (Content Management System).
-                </li>
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Built CRUD functionality for products, banners, and FAQs.
-                </li>
-                <li class="relative pl-6">
-                  <span class="absolute left-0 top-1 text-orange">•</span>
-                  Enhanced user experience with a modern and responsive website
-                  design.
-                </li>
-              </ul>
+                May 2025 - Present
+              </span>
+            </div>
+
+            <div
+              class="flex flex-col gap-3 py-8 first:pt-0 last:pb-0 lg:flex-row lg:items-start lg:justify-between lg:gap-8"
+            >
+              <div>
+                <p
+                  class="mb-1 text-sm font-medium text-paragraph dark:text-gray-500"
+                >
+                  BOSNET Distribution Indonesia
+                </p>
+                <h3
+                  class="mb-3 font-zodiak text-2xl tracking-tight text-[#27333f] lg:text-3xl dark:text-white"
+                >
+                  Software Developer Internship
+                </h3>
+                <p
+                  class="max-w-xl text-base leading-relaxed text-paragraph dark:text-gray-400"
+                >
+                  Deepened my knowledge of software development, including
+                  API development and testing, SQL injection prevention, and
+                  query and code debugging. Upgraded SQL database versions
+                  and stored procedures, fixed 50+ bugs across .NET-based
+                  systems and SQL queries, and developed and tested APIs to
+                  support front-end CRUD operations using .NET C#.
+                </p>
+              </div>
+              <span
+                class="inline-flex shrink-0 items-center rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-paragraph lg:mt-1 dark:bg-gray-800 dark:text-gray-300"
+              >
+                Sep 2024 - May 2025
+              </span>
+            </div>
+
+            <div
+              class="flex flex-col gap-3 py-8 first:pt-0 last:pb-0 lg:flex-row lg:items-start lg:justify-between lg:gap-8"
+            >
+              <div>
+                <p
+                  class="mb-1 text-sm font-medium text-paragraph dark:text-gray-500"
+                >
+                  PT. Sarana Sistem Mikro
+                </p>
+                <h3
+                  class="mb-3 font-zodiak text-2xl tracking-tight text-[#27333f] lg:text-3xl dark:text-white"
+                >
+                  Web Developer Internship
+                </h3>
+                <p
+                  class="max-w-xl text-base leading-relaxed text-paragraph dark:text-gray-400"
+                >
+                  Gained hands-on experience with PHP and MySQL while
+                  learning the fundamentals of Content Management Systems.
+                  Redesigned the company's website with a more structured
+                  layout, built an admin login system and dashboard, and
+                  developed CRUD functionality for products, banners, and
+                  FAQs.
+                </p>
+              </div>
+              <span
+                class="inline-flex shrink-0 items-center rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-paragraph lg:mt-1 dark:bg-gray-800 dark:text-gray-300"
+              >
+                Feb 2023 - Jul 2023
+              </span>
             </div>
           </div>
         </div>
@@ -1190,94 +1207,6 @@
       </div>
     </section>
 
-    <!-- Table Proficiency -->
-     <div class="max-w-5xl mx-auto px-6 mt-12 mb-24">
-          <div class="relative overflow-x-auto rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800/80 backdrop-blur-sm">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-gray-50 dark:bg-gray-900/50 text-gray-500 dark:text-gray-400 font-poppins text-xs uppercase tracking-widest border-b border-gray-200 dark:border-gray-700">
-                  <th class="px-6 py-5 font-semibold">Skill</th>
-                  <th class="px-6 py-5 font-semibold">Kategori</th>
-                  <th class="px-6 py-5 font-semibold w-1/3">Proficiency</th>
-                  <th class="px-6 py-5 font-semibold">Pengalaman</th>
-                </tr>
-              </thead>
-              <tbody class="text-paragraph dark:text-gray-300 font-nunito divide-y divide-gray-100 dark:divide-gray-700/50">
-                
-                <!-- Baris 1: Laravel -->
-                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors duration-300">
-                  <td class="px-6 py-4 font-bold text-black dark:text-white">Laravel (PHP)</td>
-                  <td class="px-6 py-4">
-                    <span class="whitespace-nowrap inline-block px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400 text-xs font-bold rounded-full">Back-end</span>
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
-                        <div class="bg-[#f97316] h-2 rounded-full" style="width: 90%"></div>
-                      </div>
-                      <span class="text-xs font-semibold">90%</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-sm">Pengembangan API & CMS terstruktur</td>
-                </tr>
-
-                <!-- Baris 2: C# -->
-                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors duration-300">
-                  <td class="px-6 py-4 font-bold text-black dark:text-white">C# (WinForms)</td>
-                  <td class="px-6 py-4">
-                    <span class="whitespace-nowrap inline-block px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400 text-xs font-bold rounded-full">Back-end</span>
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
-                        <div class="bg-[#f97316] h-2 rounded-full" style="width: 85%"></div>
-                      </div>
-                      <span class="text-xs font-semibold">85%</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-sm">Pemeliharaan & debugging sistem legacy</td>
-                </tr>
-
-                <!-- Baris 3: SQL Server & MySQL -->
-                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors duration-300">
-                  <td class="px-6 py-4 font-bold text-black dark:text-white">SQL Server & MySQL</td>
-                  <td class="px-6 py-4">
-                    <span class="whitespace-nowrap inline-block px-3 py-1 bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-400 text-xs font-bold rounded-full">Database</span>
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
-                        <div class="bg-[#f97316] h-2 rounded-full" style="width: 88%"></div>
-                      </div>
-                      <span class="text-xs font-semibold">88%</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-sm">Skrip migrasi data & optimasi query</td>
-                </tr>
-
-                <!-- Baris 4: Tailwind CSS -->
-                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors duration-300">
-                  <td class="px-6 py-4 font-bold text-black dark:text-white">Tailwind CSS</td>
-                  <td class="px-6 py-4">
-                    <span class="whitespace-nowrap inline-block px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400 text-xs font-bold rounded-full">Front-end</span>
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
-                        <div class="bg-[#f97316] h-2 rounded-full" style="width: 95%"></div>
-                      </div>
-                      <span class="text-xs font-semibold">95%</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-sm">Implementasi UI modern & responsif</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>  
-    </div>
-
-
     <!-- Portfolio -->
     <section
       id="portfolio"
@@ -1301,15 +1230,22 @@
       <div class="portfolio mx-auto max-w-5xl space-y-16 px-6 md:mt-16">
         <div class="flex flex-col gap-6 md:flex-row md:gap-12 xl:gap-24">
           <div
-            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer"
+            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer md:w-1/2 md:shrink-0"
           >
-            <img
-              draggable="false"
-              class="rounded-lg shadow-md"
-              src="img/WeServe.svg"
-              alt="Project WeServe"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="img/WeServe.webp" type="image/webp" />
+              <source srcset="img/WeServe.png" type="image/png" />
+              <img
+                draggable="false"
+                class="rounded-lg shadow-md"
+                src="img/WeServe.png"
+                alt="Project WeServe"
+                width="1000"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="relative z-10 space-y-4">
             <h2
@@ -1620,15 +1556,22 @@
             </div>
           </div>
           <div
-            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer"
+            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer md:w-1/2 md:shrink-0"
           >
-            <img
-              draggable="false"
-              class="rounded-lg shadow-md"
-              src="img/FomoNews.svg"
-              alt="Project FomoNews"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="img/FomoNews.webp" type="image/webp" />
+              <source srcset="img/FomoNews.png" type="image/png" />
+              <img
+                draggable="false"
+                class="rounded-lg shadow-md"
+                src="img/FomoNews.png"
+                alt="Project FomoNews"
+                width="1000"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </div>
@@ -1637,15 +1580,22 @@
       <div class="portfolio mx-auto max-w-5xl space-y-16 px-6 my-16">
         <div class="flex flex-col gap-6 md:flex-row md:gap-12 xl:gap-24">
           <div
-            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer"
+            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer md:w-1/2 md:shrink-0"
           >
-            <img
-              draggable="false"
-              class="rounded-lg shadow-md"
-              src="img/Vrom.svg"
-              alt="Project Vrom"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="img/Vrom.webp" type="image/webp" />
+              <source srcset="img/Vrom.png" type="image/png" />
+              <img
+                draggable="false"
+                class="rounded-lg shadow-md"
+                src="img/Vrom.png"
+                alt="Project Vrom"
+                width="1000"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="relative z-10 space-y-4">
             <h2
@@ -2046,15 +1996,22 @@
             </div>
           </div>
           <div
-            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer"
+            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer md:w-1/2 md:shrink-0"
           >
-            <img
-              draggable="false"
-              class="rounded-lg shadow-md"
-              src="img/Social Solutions.svg"
-              alt="Project Social Solutions"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="img/social-solutions.webp" type="image/webp" />
+              <source srcset="img/social-solutions.png" type="image/png" />
+              <img
+                draggable="false"
+                class="rounded-lg shadow-md"
+                src="img/social-solutions.png"
+                alt="Project Social Solutions"
+                width="1000"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </div>
@@ -2063,15 +2020,25 @@
       <div class="portfolio mx-auto max-w-5xl space-y-16 px-6 my-16">
         <div class="flex flex-col gap-6 md:flex-row md:gap-12 xl:gap-24">
           <div
-            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer"
+            class="mt-6 sm:mt-0 hover:scale-105 transition duration-500 cursor-pointer md:w-1/2 md:shrink-0"
           >
-            <img
-              draggable="false"
-              class="rounded-lg shadow-md"
-              src="img/SixtyFive Library.svg"
-              alt="Project E-Library"
-              loading="lazy"
-            />
+            <picture>
+              <source
+                srcset="img/sixtyfive-library.webp"
+                type="image/webp"
+              />
+              <source srcset="img/sixtyfive-library.png" type="image/png" />
+              <img
+                draggable="false"
+                class="rounded-lg shadow-md"
+                src="img/sixtyfive-library.png"
+                alt="Project E-Library"
+                width="1000"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="relative z-10 space-y-4">
             <h2
@@ -2307,60 +2274,6 @@
       </div>
     </section>
 
-    <!-- Project Overview-->
-    <div class="max-w-5xl mx-auto px-6 mt-16 mb-24">
-      <div class="mb-6">
-        <h3 class="font-zodiak text-2xl font-bold text-black dark:text-white">Project Recap</h3>
-        <p class="text-paragraph dark:text-gray-500 text-sm">Ringkasan cepat dari beberapa sistem yang telah saya kembangkan.</p>
-      </div>
-      
-      <div class="relative overflow-x-auto rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800/80 backdrop-blur-sm">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-gray-50 dark:bg-gray-900/50 text-gray-500 dark:text-gray-400 font-poppins text-xs uppercase tracking-widest border-b border-gray-200 dark:border-gray-700">
-              <th class="px-6 py-5 font-semibold">Nama Project</th>
-              <th class="px-6 py-5 font-semibold">Deskripsi Singkat</th>
-              <th class="px-6 py-5 font-semibold w-1/3">Tech Stack</th>
-              <th class="px-6 py-5 font-semibold text-center">Status</th>
-            </tr>
-          </thead>
-          <tbody class="text-paragraph dark:text-gray-300 font-nunito divide-y divide-gray-100 dark:divide-gray-700/50">
-            
-            <!-- Project 1 -->
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors duration-300">
-              <td class="px-6 py-4 font-bold text-black dark:text-white whitespace-nowrap">Incentive Scheme</td>
-              <td class="px-6 py-4 text-sm">Kalkulasi performa sales (BP & BB metrics) dengan aturan koding internal yang ketat.</td>
-              <td class="px-6 py-4 flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-semibold rounded-md border border-gray-200 dark:border-gray-600">C#</span>
-                <span class="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-semibold rounded-md border border-gray-200 dark:border-gray-600">SQL Server</span>
-              </td>
-              <td class="px-6 py-4 text-center">
-                <span class="inline-flex items-center whitespace-nowrap px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
-                  <span class="w-1.5 h-1.5 mr-1.5 bg-amber-500 rounded-full shrink-0"></span> In Progress
-                </span>
-              </td>
-            </tr>
-
-            <!-- Project 2 -->
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors duration-300">
-              <td class="px-6 py-4 font-bold text-black dark:text-white whitespace-nowrap">Vrom Rental</td>
-              <td class="px-6 py-4 text-sm">Sistem penyewaan kendaraan terintegrasi dengan payment gateway pihak ketiga.</td>
-              <td class="px-6 py-4 flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-semibold rounded-md border border-gray-200 dark:border-gray-600">Laravel</span>
-                <span class="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-semibold rounded-md border border-gray-200 dark:border-gray-600">Midtrans</span>
-                <span class="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-semibold rounded-md border border-gray-200 dark:border-gray-600">MySQL</span>
-              </td>
-              <td class="px-6 py-4 text-center">
-                <span class="whitespace-nowrap inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
-                  <span class="w-1.5 h-1.5 mr-1.5 bg-emerald-500 rounded-full"></span> Done
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> 
-
     <!-- Contact -->
     <section
       id="contact"
@@ -2528,7 +2441,7 @@
     <!-- Back to top -->
     <a
       id="to-top"
-      class="w-14 h-14 hidden hover:animate-pulse bg-orange rounded-full items-center justify-center fixed z-[9999] bottom-4 p-4 right-4 transition-all duration-300 ease-in-out"
+      class="to-top-hidden w-14 h-14 flex hover:animate-pulse bg-orange rounded-full items-center justify-center fixed z-[9999] bottom-4 p-4 right-4 transition-all duration-300 ease-in-out"
       href="#home"
     >
       <i class="fa-solid text-white text-xl fa-arrow-up"></i>

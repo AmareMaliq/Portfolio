@@ -25,27 +25,31 @@
   --color-dark: #0f172a;
 }
 
-/* Aturan ini memastikan TAMPILAN LAMA (OLD) SELALU DI ATAS */
-/* In your input.css file */
+/* Theme toggle circle-reveal: the standard, direction-agnostic recipe
+   (same one Chrome's own View Transitions docs use). `new` (the state
+   we're switching TO) always sits on top and its clip-path is animated
+   from a 0px circle at the click point out to full-screen, revealing it
+   over `old`, which just sits static underneath the whole time. Because
+   this doesn't depend on which direction we're going, there's no class or
+   z-index swap that has to be timed correctly - a whole class of "flips
+   back mid-animation" flicker bugs simply can't happen.
 
-/* Default state (for Dark to Light transition) */
-::view-transition-old(root) {
-  z-index: 9999;
+   Chrome's default stylesheet also cross-fades old/new via
+   `mix-blend-mode: plus-lighter` (their opacity keyframes are meant to sum
+   to a clean fade). We kill that animation to drive our own clip-path
+   reveal instead, so mix-blend-mode has to be reset to normal too -
+   otherwise both full-opacity layers still blend additively and wash out
+   wherever they overlap. */
+::view-transition-old(root),
+::view-transition-new(root) {
   animation: none !important;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
 }
 ::view-transition-new(root) {
-  z-index: 1;
-  animation: none !important;
-}
-
-/* Special state for Light to Dark transition */
-html.transitioning-to-dark::view-transition-new(root) {
-  /* The new dark view must be on top to be visible */
   z-index: 9999;
-}
-html.transitioning-to-dark::view-transition-old(root) {
-  /* The old light view goes to the bottom to be covered */
-  z-index: 1;
 }
 
 .navbar-fixed {
@@ -71,28 +75,52 @@ html.transitioning-to-dark::view-transition-old(root) {
 .hamburger-active > span:nth-child(3) {
   @apply -rotate-45;
 }
-/* KEMBALIKAN SEMUA CLASS TIMELINE ANDA MENJADI SEPERTI INI */
-
-.timeline-img-ssm {
-  @apply h-24 w-24 object-center rounded-full shadow-md border-4 border-gray-50 dark:border-gray-800 lg:absolute lg:mx-auto lg:left-0 lg:right-0;
+/* Mobile nav dropdown: opacity/scale toggle instead of display:none so it
+   can actually transition smoothly. Removing this class (instead of adding
+   an "open" class) lets it fall back to normal, un-clipped layout at md+.
+   Scoped to below md in a plain @media query (not via `md:` utilities) so
+   it can never end up on the wrong side of Tailwind's cascade layers and
+   blank out the desktop nav - it simply doesn't exist as a rule at md+. */
+@media (max-width: 767.98px) {
+  .nav-closed {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.95);
+  }
 }
 
-.timeline-img-bosnet {
-  @apply h-24 w-24 object-cover rounded-full shadow-md border-4 bg-white border-gray-50 dark:border-gray-800 lg:absolute lg:mx-auto lg:left-0 lg:right-0;
+/* Back-to-top button: same trick as .nav-closed so the fade/scale-in on
+   scroll is actually animated instead of popping in via display:none. */
+.to-top-hidden {
+  @apply invisible pointer-events-none scale-75 opacity-0;
 }
 
-.timeline-content {
-  @apply relative pt-2 lg:pl-16 lg:pt-0 lg:w-1/2 lg:ml-auto;
+/* Theme toggle buttons: kill the mobile tap-highlight flash and give
+   immediate press feedback so the switch feels responsive before the
+   view-transition animation itself has even started. */
+.theme-toggle-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  @apply transition-transform duration-150 ease-out select-none active:scale-90;
 }
 
-.timeline-content-left {
-  @apply lg:ml-0 lg:mr-auto lg:pl-0 lg:pr-16;
-}
+/* Respect the OS-level "reduce motion" setting: cut every custom animation
+   down to (near) nothing instead of forcing users who opted out of motion
+   to sit through it anyway. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 
-.timeline-pointer {
-  @apply absolute left-10 h-3 w-4 lg:left-14 lg:top-11 transform rotate-45 inset-0 bg-white dark:bg-gray-800;
-}
-
-.timeline-pointer-left {
-  @apply lg:left-auto lg:right-14;
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.001ms !important;
+  }
 }
